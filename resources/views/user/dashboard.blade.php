@@ -23,7 +23,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="#">GameTopUp</a>
+        <a class="navbar-brand fw-bold" href="#">Adola Burst</a>
         <div class="ms-auto">
             <span class="text-white me-3">
                 <i class="bi bi-person-circle"></i> {{ session('name') }}
