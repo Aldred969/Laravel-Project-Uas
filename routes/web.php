@@ -44,7 +44,7 @@ Route::get('/logout', function () {
 //Register Akun Routes
 Route::get('/register', function () {
     return view('register');
-});
+}); //Test1
 
 Route::post('/register', [RegisterController::class, 'register']);
 //end
