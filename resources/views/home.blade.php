@@ -82,7 +82,32 @@
             transform: translateY(-100%);
         }
 
+        .footer {
+            background: #000;
+            color: #fff;
+        }
 
+        .footer-link {
+            color: #aaa;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 6px;
+            transition: color .3s ease;
+        }
+
+        .footer-link:hover {
+            color: #0dcaf0;
+        }
+
+        .footer-social {
+            color: #aaa;
+            transition: color .3s ease, transform .3s ease;
+        }
+
+        .footer-social:hover {
+            color: #0dcaf0;
+            transform: translateY(-3px);
+        }
     </style>
 </head>
 <body>
@@ -90,8 +115,12 @@
 <!-- NAVBAR -->
 <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand fw-bold text-info" href="#">
-            <i class="bi bi-controller"></i> NekoTopUp
+        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold text-info" href="#">
+            <img src="{{ asset('images/cat.png') }}"
+                alt="NekoTopUp Logo"
+                height="32"
+                class="d-inline-block align-text-top">
+            ShiroNeko
         </a>
         <div class="ms-auto">
             <a href="/login" class="btn btn-outline-info btn-sm me-2">Login</a>
@@ -143,8 +172,13 @@
 
     <!--Artikel Tentang NekoTopUp-->
 <section class="container my-5">
-    <h3 class="text-center fw-bold mb-4">📚 Kenapa Sih Harus Milih Kami</h3>
-
+    <h3 class="text-center fw-bold mb-4"> 
+       <img src="{{ asset('images/cat.png') }}"
+        alt="NekoTopUp Logo"
+         height="32"
+         class="d-inline-block align-text-top"> 
+        Kenapa Sih Harus Milih Kami
+    </h3>
     <div class="row g-4">
 
         <div class="col-md-4">
@@ -169,7 +203,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Apakah Top Up Aman?</h5>
                     <p class="card-text small text-white">
-                        NekoTopUp menggunakan sistem transaksi aman dan
+                        ShiroNeko menggunakan sistem transaksi aman dan
                         tidak menyimpan data sensitif pengguna.
                     </p>
                     <!--
@@ -184,7 +218,7 @@
         <div class="col-md-4">
             <div class="card bg-dark text-light h-100">
                 <div class="card-body">
-                    <h5 class="card-title">Kenapa Harus NekoTopUp?</h5>
+                    <h5 class="card-title">Kenapa Harus ShiroNeko?</h5>
                     <p class="card-text small text-white">
                         Proses cepat, harga terjangkau, dan dukungan game populer
                         membuat NekoTopUp pilihan terbaik gamer.
@@ -204,7 +238,13 @@
 
 <!-- GAME LIST -->
 <section class="container my-5">
-    <h3 class="text-center mb-4 fw-bold">🎮 Game Populer</h3>
+    <h3 class="text-center mb-4 fw-bold">
+    <img src="{{ asset('images/gamepad.png') }}"
+        alt="NekoTopUp Logo"
+            height="32"
+            class="d-inline-block align-text-top">
+            Game Populer
+    </h3>
     <div class="row g-4">
 
         <!-- Mobile Legends -->
@@ -257,6 +297,67 @@
 
     </div>
 </section>
+
+<footer class="footer mt-5 pt-5 pb-3">
+    <div class="container">
+        <div class="row gy-4">
+
+            <!-- Brand -->
+            <div class="col-md-4">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <img src="{{ asset('images/cat.png') }}" alt="NekoTopUp Logo" height="32">
+                    <h5 class="fw-bold text-info mb-0">ShiroNeko</h5>
+                </div>
+                <p class="text-secondary small">
+                    ShiroNeko adalah marketplace top up game online yang menyediakan
+                    layanan cepat, aman, dan terpercaya untuk gamer Indonesia.
+                </p>
+            </div>
+
+            <!-- Menu -->
+            <div class="col-md-2">
+                <h6 class="fw-bold mb-3">Menu</h6>
+                <ul class="list-unstyled small">
+                    <li><a href="#" class="footer-link">Beranda</a></li>
+                    <li><a href="#" class="footer-link">Game Populer</a></li>
+                    <li><a href="#" class="footer-link">Artikel</a></li>
+                    <li><a href="#" class="footer-link">Tentang Kami</a></li>
+                </ul>
+            </div>
+
+            <!-- Bantuan -->
+            <div class="col-md-3">
+                <h6 class="fw-bold mb-3">Bantuan</h6>
+                <ul class="list-unstyled small">
+                    <li><a href="#" class="footer-link">Cara Top Up</a></li>
+                    <li><a href="#" class="footer-link">FAQ</a></li>
+                    <li><a href="#" class="footer-link">Kebijakan Privasi</a></li>
+                    <li><a href="#" class="footer-link">Syarat & Ketentuan</a></li>
+                </ul>
+            </div>
+
+            <!-- Sosial Media -->
+            <div class="col-md-3">
+                <h6 class="fw-bold mb-3">Ikuti Kami</h6>
+                <div class="d-flex gap-3 fs-5">
+                    <a href="#" class="footer-social"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="footer-social"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="footer-social"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" class="footer-social"><i class="bi bi-discord"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <hr class="border-secondary my-4">
+
+        <div class="text-center small text-secondary">
+            © {{ date('Y') }} ShiroNeko. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+
     <!--JS UNTUK COURSEL-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!--JS UNTUK NAVBAR-->
