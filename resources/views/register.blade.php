@@ -113,7 +113,9 @@
             <label>Konfirmasi Password</label>
             <input type="password" name="password_confirmation" class="form-control" placeholder="Ulangi password" required>
         </div>
-
+        
+    <!--Khusus Pendaftaran Admin-->
+        <!--
         <div class="mb-3 text-start">
             <label>Daftar Sebagai</label>
             <select name="role" class="form-select" required>
@@ -121,7 +123,8 @@
                 <option value="admin">Admin</option>
             </select>
         </div>
-
+        -->
+        
         <button type="submit" class="btn btn-register w-100 mt-2">
             Register
         </button>

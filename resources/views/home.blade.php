@@ -16,11 +16,32 @@
         }
 
         .hero {
+            position: relative;
             min-height: 80vh;
+            overflow: hidden;
+        }
+
+        .hero .carousel-item img {
+            height: 80vh;
+            object-fit: cover;
+            filter: blur(6px) brightness(0.5);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, #302b63, #24243e);
+            justify-content: center;
+            text-align: center;
+            z-index: 2;
         }
+
+        .hero-overlay h1,
+        .hero-overlay p {
+            color: #fff;
+        }
+
 
         .game-card {
             background: #111;
@@ -36,6 +57,16 @@
         footer {
             background: #000;
         }
+
+        .game-card img {
+            border-radius: 12px;
+            transition: transform .3s;
+        }
+
+        .game-card:hover img {
+            transform: scale(1.05);
+        }
+
     </style>
 </head>
 <body>
@@ -53,55 +84,92 @@
     </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-    <div class="container text-center">
-        <h1 class="fw-bold display-5">
-            Top Up Game Favoritmu<br>
-            <span class="text-info">Cepat • Aman • Terpercaya</span>
-        </h1>
-        <p class="mt-3 text-secondary">
-            Mobile Legends, Free Fire, Genshin Impact, dan lainnya
-        </p>
-        <a href="/login" class="btn btn-info btn-lg mt-3 text-dark fw-bold">
-            Top Up Sekarang
-        </a>
+    <!-- Carousel Background -->
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/images/ML.jpg" class="d-block w-100" alt="Mobile Legends">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/FF.jpg" class="d-block w-100" alt="Free Fire">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/GI.jpg" class="d-block w-100" alt="Genshin Impact">
+            </div>
+        </div>
+    </div>
+
+    <!-- Text Overlay -->
+    <div class="hero-overlay container">
+        <div>
+            <h1 class="fw-bold display-5">
+                Top Up Game Favoritmu<br>
+                <span class="text-info">Cepat • Aman • Terpercaya</span>
+            </h1>
+            <p class="mt-3 text-secondary">
+                Mobile Legends, Free Fire, Genshin Impact, dan lainnya
+            </p>
+            <a href="/login" class="btn btn-info btn-lg mt-3 text-dark fw-bold">
+                Top Up Sekarang
+            </a>
+        </div>
     </div>
 </section>
 
+
 <!-- GAME LIST -->
 <section class="container my-5">
-    <h3 class="text-center mb-4">🎮 Game Populer</h3>
+    <h3 class="text-center mb-4 fw-bold">🎮 Game Populer</h3>
     <div class="row g-4">
 
+        <!-- Mobile Legends -->
         <div class="col-md-3">
-            <div class="game-card p-3 text-center">
-                <i class="bi bi-fire fs-1 text-danger"></i>
-                <h5 class="mt-3">Mobile Legends</h5>
-                <p class="text-secondary">Top Up Diamond</p>
+            <div class="game-card p-3 text-center h-100">
+                <img src="/images/ml-card.jpg" class="img-fluid mb-3">
+                <h5>Mobile Legends</h5>
+                <p class="text-secondary small">Top Up Diamond ML</p>
+                <a href="/login" class="btn btn-outline-info btn-sm">
+                    Top Up Sekarang
+                </a>
             </div>
         </div>
 
+        <!-- Free Fire -->
         <div class="col-md-3">
-            <div class="game-card p-3 text-center">
-                <i class="bi bi-fire fs-1 text-danger"></i>
-                <h5 class="mt-3">Free Fire</h5>
-                <p class="text-secondary">Top Up Diamond</p>
+            <div class="game-card p-3 text-center h-100">
+                <img src="/images/ff-card.jpg" class="img-fluid mb-3">
+                <h5>Free Fire</h5>
+                <p class="text-secondary small">Top Up Diamond FF</p>
+                <a href="/login" class="btn btn-outline-info btn-sm">
+                    Top Up Sekarang
+                </a>
             </div>
         </div>
 
+        <!-- Genshin -->
         <div class="col-md-3">
-            <div class="game-card p-3 text-center">
-                <i class="bi bi-fire fs-1 text-danger"></i>
-                <h5 class="mt-3">Genshin Impact</h5>
-                <p class="text-secondary">Top Up Primogems</p>
+            <div class="game-card p-3 text-center h-100">
+                <img src="/images/genshin-card.jpg" class="img-fluid mb-3">
+                <h5>Genshin Impact</h5>
+                <p class="text-secondary small">Top Up Primogems</p>
+                <a href="/login" class="btn btn-outline-info btn-sm">
+                    Top Up Sekarang
+                </a>
             </div>
         </div>
 
+        <!-- Valorant -->
         <div class="col-md-3">
-            <div class="game-card p-3 text-center">
-                <i class="bi bi-fire fs-1 text-danger"></i>
-                <h5 class="mt-3">Valorant</h5>
-                <p class="text-secondary">Top Up Valorant Points</p>
+            <div class="game-card p-3 text-center h-100">
+                <img src="/images/valorant-card.jpg" class="img-fluid mb-3">
+                <h5>Valorant</h5>
+                <p class="text-secondary small">Top Up VP</p>
+                <a href="/login" class="btn btn-outline-info btn-sm">
+                    Top Up Sekarang
+                </a>
             </div>
         </div>
+
+    </div>
+</section>
