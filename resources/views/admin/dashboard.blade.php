@@ -2,70 +2,125 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard Admin | Game Top Up</title>
+    <title>Dashboard Admin | ShiroNeko</title>
 
-    <!-- Bootstrap 5 -->
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Icon -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
         body {
-            background-color: #eef2f7;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh;
         }
-        .card-custom {
+
+        .navbar {
+            background: #000;
+            box-shadow: 0 0 15px rgba(0,255,255,0.2);
+        }
+
+        .admin-card {
+            background: #111;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            box-shadow: 0 0 20px rgba(0,255,255,0.2);
+            transition: transform .3s ease, box-shadow .3s ease;
+            height: 100%;
+        }
+
+        .admin-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(0,255,255,0.35);
+        }
+
+        .admin-card i {
+            font-size: 50px;
+            color: #00ffd5;
+        }
+
+        .btn-admin {
+            background: linear-gradient(45deg, #00ffd5, #00b3ff);
+            border: none;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .btn-admin:hover {
+            opacity: 0.9;
         }
     </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="#">Admin Panel</a>
-        <div class="ms-auto">
-            <span class="text-white me-3">
-                <i class="bi bi-shield-lock"></i> {{ session('name') }}
+        <a class="navbar-brand fw-bold text-info d-flex align-items-center gap-2" href="#">
+            <img src="{{ asset('images/cat.png') }}" height="30">
+            ShiroNeko Admin
+        </a>
+
+        <div class="ms-auto d-flex align-items-center gap-3">
+            <span class="text-white small">
+                <i class="bi bi-shield-lock-fill text-info"></i>
+                {{ session('name') }}
             </span>
-            <a href="/logout" class="btn btn-outline-light btn-sm">Logout</a>
+            <a href="/logout" class="btn btn-outline-info btn-sm">Logout</a>
         </div>
     </div>
 </nav>
 
+<!-- CONTENT -->
 <div class="container mt-5">
-    <h3 class="mb-4">Dashboard Admin</h3>
+    <h3 class="fw-bold mb-4 text-info">
+        Dashboard Admin
+    </h3>
 
     <div class="row g-4">
+
         <!-- Kelola Game -->
         <div class="col-md-4">
-            <div class="card card-custom p-4 text-center">
-                <i class="bi bi-joystick fs-1 text-primary"></i>
+            <div class="admin-card p-4 text-center">
+                <i class="bi bi-joystick"></i>
                 <h5 class="mt-3">Kelola Game</h5>
-                <p class="text-muted">Tambah, edit, hapus data game</p>
-                <a href="/admin/games" class="btn btn-primary">Kelola</a>
+                <p class="text-secondary small">
+                    Tambah, edit, dan hapus data game
+                </p>
+                <a href="/admin/games" class="btn btn-admin w-100 mt-2">
+                    Kelola Game
+                </a>
             </div>
         </div>
 
-        <!-- Kelola Produk -->
+        <!-- Produk Top Up -->
         <div class="col-md-4">
-            <div class="card card-custom p-4 text-center">
-                <i class="bi bi-box-seam fs-1 text-success"></i>
+            <div class="admin-card p-4 text-center">
+                <i class="bi bi-box-seam"></i>
                 <h5 class="mt-3">Produk Top Up</h5>
-                <p class="text-muted">Kelola nominal dan harga top up</p>
-                <a href="/admin/products" class="btn btn-success">Kelola</a>
+                <p class="text-secondary small">
+                    Atur nominal dan harga top up
+                </p>
+                <a href="/admin/products" class="btn btn-admin w-100 mt-2">
+                    Kelola Produk
+                </a>
             </div>
         </div>
 
         <!-- Transaksi -->
         <div class="col-md-4">
-            <div class="card card-custom p-4 text-center">
-                <i class="bi bi-receipt fs-1 text-warning"></i>
+            <div class="admin-card p-4 text-center">
+                <i class="bi bi-receipt"></i>
                 <h5 class="mt-3">Transaksi</h5>
-                <p class="text-muted">Lihat & verifikasi transaksi user</p>
-                <a href="/admin/transactions" class="btn btn-warning text-white">Lihat</a>
+                <p class="text-secondary small">
+                    Verifikasi transaksi pengguna
+                </p>
+                <a href="/admin/transactions" class="btn btn-admin w-100 mt-2">
+                    Lihat Transaksi
+                </a>
             </div>
         </div>
+
     </div>
 </div>
 

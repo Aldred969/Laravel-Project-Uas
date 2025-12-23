@@ -77,14 +77,12 @@
 
     <h3 class="mb-4">Register Akun</h3>
 
-    <!-- Alert Error -->
     @if(session('error'))
         <div class="alert alert-danger error-text">
             {{ session('error') }}
         </div>
     @endif
 
-    <!-- Alert Success -->
     @if(session('success'))
         <div class="alert alert-success error-text">
             {{ session('success') }}
@@ -96,41 +94,47 @@
 
         <div class="mb-3 text-start">
             <label>Nama Lengkap</label>
-            <input type="text" name="name" class="form-control" placeholder="Masukkan nama lengkap" required>
+            <input type="text" name="name" class="form-control" required>
         </div>
 
         <div class="mb-3 text-start">
             <label>Email</label>
-            <input type="email" name="email" class="form-control" placeholder="Masukkan email" required>
+            <input type="email" name="email" class="form-control" required>
         </div>
 
         <div class="mb-3 text-start">
             <label>Password</label>
-            <input type="password" name="password" class="form-control" placeholder="Masukkan password" required>
+            <input type="password" name="password" class="form-control" required>
         </div>
 
         <div class="mb-3 text-start">
             <label>Konfirmasi Password</label>
-            <input type="password" name="password_confirmation" class="form-control" placeholder="Ulangi password" required>
+            <input type="password" name="password_confirmation" class="form-control" required>
         </div>
-        
-    <!--Khusus Pendaftaran Admin-->
-        <!--
+
+        <!-- PILIH ROLE -->
         <div class="mb-3 text-start">
             <label>Daftar Sebagai</label>
-            <select name="role" class="form-select" required>
+            <select name="role" id="role" class="form-select" onchange="toggleAdminCode()" required>
                 <option value="user">User</option>
                 <option value="admin">Admin</option>
             </select>
         </div>
-        -->
-        
+
+        <!-- KODE VERIFIKASI ADMIN -->
+        <div class="mb-3 text-start d-none" id="adminCodeField">
+            <label>Kode Verifikasi Admin</label>
+            <input type="text" name="admin_code" class="form-control" placeholder="Masukkan kode admin">
+            <small class="text-secondary">
+                Wajib diisi jika mendaftar sebagai admin
+            </small>
+        </div>
+
         <button type="submit" class="btn btn-register w-100 mt-2">
             Register
         </button>
     </form>
 
-    <!-- Link Login -->
     <div class="text-center mt-3">
         <span class="text-secondary" style="font-size:14px;">
             Sudah punya akun?
@@ -144,6 +148,19 @@
         Marketplace Top Up Game Online
     </p>
 </div>
+
+<script>
+function toggleAdminCode() {
+    let role = document.getElementById('role').value;
+    let adminField = document.getElementById('adminCodeField');
+
+    if (role === 'admin') {
+        adminField.classList.remove('d-none');
+    } else {
+        adminField.classList.add('d-none');
+    }
+}
+</script>
 
 </body>
 </html>
