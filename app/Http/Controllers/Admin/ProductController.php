@@ -54,6 +54,6 @@ class ProductController extends Controller
 
     return view('admin.products.edit', compact('product', 'games'));
 }
-
+//
 }
 
