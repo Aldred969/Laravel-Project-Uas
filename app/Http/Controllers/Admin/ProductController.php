@@ -39,21 +39,38 @@ class ProductController extends Controller
             ->with('success', 'Produk berhasil ditambahkan');
     }
 
-    public function destroy($id)
-{
-    $product = Product::findOrFail($id);
-    $product->delete();
-
-    return redirect()->route('products.index')
-        ->with('success', 'Produk berhasil dihapus');
-}
     public function edit($id)
-{
-    $product = Product::findOrFail($id);
-    $games = Game::all();
+    {
+        $product = Product::findOrFail($id);
+        $games = Game::all();
 
-    return view('admin.products.edit', compact('product', 'games'));
+        return view('admin.products.edit', compact('product', 'games'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'game_id' => 'required',
+            'name'    => 'required',
+            'price'   => 'required|numeric'
+        ]);
+
+        $product = Product::findOrFail($id);
+        $product->update([
+            'game_id' => $request->game_id,
+            'name'    => $request->name,
+            'price'   => $request->price
+        ]);
+
+        return redirect()->route('products.index')
+            ->with('success', 'Produk berhasil diperbarui');
+    }
+
+    public function destroy($id)
+    {
+        Product::findOrFail($id)->delete();
+
+        return redirect()->route('products.index')
+            ->with('success', 'Produk berhasil dihapus');
+    }
 }
-
-}
-
