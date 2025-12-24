@@ -49,6 +49,33 @@
         .btn-admin:hover {
             opacity: 0.9;
         }
+
+        .footer {
+            background: #000;
+            color: #fff;
+        }
+
+        .footer-link {
+            color: #aaa;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 6px;
+            transition: color .3s ease;
+        }
+
+        .footer-link:hover {
+            color: #0dcaf0;
+        }
+
+        .footer-social {
+            color: #aaa;
+            transition: color .3s ease, transform .3s ease;
+        }
+
+        .footer-social:hover {
+            color: #0dcaf0;
+            transform: translateY(-3px);
+        }
     </style>
 </head>
 <body>
@@ -123,6 +150,52 @@
 
     </div>
 </div>
+
+<footer class="footer mt-5 pt-5 pb-3">
+    <div class="container">
+        <div class="row gy-4">
+
+            <!-- Brand -->
+            <div class="col-md-4">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <img src="{{ asset('images/cat.png') }}" alt="NekoTopUp Logo" height="32">
+                    <h5 class="fw-bold text-info mb-0">ShiroNeko</h5>
+                </div>
+                <p class="text-secondary small">
+                    Ini adalah halaman admin,halaman yang sangat penting didalam web ini, jika kamu bisa berada di dalam sini berarti kamu sedang benar benar tersesat.
+                </p>
+            </div>
+            <!-- Bantuan -->
+            <div class="col-md-3">
+                <h6 class="fw-bold mb-3">Bantuan</h6>
+                <ul class="list-unstyled small">
+                    <li><a href="#" class="footer-link">Cara Top Up</a></li>
+                    <li><a href="#" class="footer-link">FAQ</a></li>
+                    <li><a href="#" class="footer-link">Kebijakan Privasi</a></li>
+                    <li><a href="#" class="footer-link">Syarat & Ketentuan</a></li>
+                </ul>
+            </div>
+
+            <!-- Sosial Media -->
+            <div class="col-md-3">
+                <h6 class="fw-bold mb-3">Ikuti Kami</h6>
+                <div class="d-flex gap-3 fs-5">
+                    <a href="#" class="footer-social"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="footer-social"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="footer-social"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" class="footer-social"><i class="bi bi-discord"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <hr class="border-secondary my-4">
+
+        <div class="text-center small text-secondary">
+            © {{ date('Y') }} ShiroNeko. All rights reserved.
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
