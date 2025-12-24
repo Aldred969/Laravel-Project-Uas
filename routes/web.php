@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-
+use App\Http\Controllers\Admin\GameController;
 
 Route::get('/', function () {
     return view('home');
@@ -48,3 +48,27 @@ Route::get('/register', function () {
 
 Route::post('/register', [RegisterController::class, 'register']);
 //end
+
+//Kelola Game 
+
+Route::prefix('admin')->name('admin.')->group(function () {
+
+    Route::get('/games', [GameController::class, 'index'])
+        ->name('games.index');
+
+    Route::get('/games/create', [GameController::class, 'create'])
+        ->name('games.create');
+
+    Route::post('/games/store', [GameController::class, 'store'])
+        ->name('games.store');
+
+    Route::get('/games/edit/{id}', [GameController::class, 'edit'])
+        ->name('games.edit');
+
+    Route::put('/games/update', [GameController::class, 'update'])
+        ->name('games.update');
+
+    Route::get('/games/delete/{id}', [GameController::class, 'destroy'])
+        ->name('games.destroy');
+});
+//End
