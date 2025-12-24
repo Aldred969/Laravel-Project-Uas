@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Admin\GameController;
+use App\Http\Controllers\User\GameController as UserGameController;
+use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\Admin\ProductController;
 
 Route::get('/', function () {
     return view('home');
@@ -26,6 +29,37 @@ Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 });
 
+Route::prefix('admin')->group(function () {
+
+    Route::get('/transactions', [TransactionController::class, 'index']);
+    Route::get('/transactions/{id}', [TransactionController::class, 'show']);
+    Route::post('/transactions/{id}/update-status', [TransactionController::class, 'updateStatus']);
+
+});
+
+Route::prefix('admin')->group(function () {
+
+    Route::get('/products', [ProductController::class, 'index'])
+        ->name('products.index');
+
+    Route::get('/products/create', [ProductController::class, 'create'])
+        ->name('products.create');
+
+    Route::post('/products', [ProductController::class, 'store'])
+        ->name('products.store');
+
+    Route::get('/products/{id}/edit', [ProductController::class, 'edit'])
+        ->name('products.edit');
+
+    Route::put('/products/{id}', [ProductController::class, 'update'])
+        ->name('products.update');
+
+    Route::delete('/products/{id}', [ProductController::class, 'destroy'])
+        ->name('products.destroy');
+});
+
+
+
 Route::get('/user/dashboard', function () {
 
     if (!session()->has('user_id') || session('role') != 'user') {
@@ -34,6 +68,8 @@ Route::get('/user/dashboard', function () {
 
     return view('user.dashboard');
 });
+
+Route::get('/user/games', [UserGameController::class, 'index']);
 
 Route::get('/logout', function () {
     session()->flush();
