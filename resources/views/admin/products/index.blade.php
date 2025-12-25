@@ -20,7 +20,7 @@
              <!-- TAMBAH GAME -->
          <a href="{{ route('products.create') }}"
                 class="btn btn-info fw-bold">
-                    + Tambah Game
+                    + Tambah Produk
              </a>
         </div>
     </div>

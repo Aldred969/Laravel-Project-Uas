@@ -8,6 +8,7 @@ use App\Http\Controllers\User\GameController as UserGameController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\User\TopupController;
+use App\Http\Controllers\User\TransactionController as UserTransactionController;
 
 //Route Home dll
 Route::get('/', function () {
@@ -101,6 +102,7 @@ Route::prefix('user')->name('user.')->group(function () {
 
 });
 
+    // Route User
 Route::get('/user/dashboard', function () {
 
     if (!session()->has('user_id') || session('role') != 'user') {
@@ -110,6 +112,11 @@ Route::get('/user/dashboard', function () {
     return view('user.dashboard');
 });
 
+// Riwayat
+Route::get('/user/riwayat', [UserTransactionController::class, 'index']);
+Route::post('/user/riwayat/{id}/cancel', [UserTransactionController::class, 'cancel']);
+
+//user games
 Route::get('/user/games', [UserGameController::class, 'index']);
 
 Route::get('/logout', function () {

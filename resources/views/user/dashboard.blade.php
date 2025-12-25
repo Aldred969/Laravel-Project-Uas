@@ -117,7 +117,7 @@
                 <p class="text-secondary small">
                     Lihat status dan riwayat top up kamu
                 </p>
-                <a href="#" class="btn btn-user w-100 mt-2">
+                <a href="/user/riwayat" class="btn btn-user w-100 mt-2">
                     Riwayat Transaksi
                 </a>
             </div>
