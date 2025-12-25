@@ -126,7 +126,7 @@
             <label>Kode Verifikasi Admin</label>
             <input type="text" name="admin_code" class="form-control" placeholder="Masukkan kode admin">
             <small class="text-secondary">
-                Wajib diisi jika mendaftar sebagai admin
+                Waduh Apakah Kamu Admin Baru Yang Tadi Dibilang Sama Icik Bos, Isi Kode Yang Dikasih Icik Bos Dulu Yuk Buat verifikasi.
             </small>
         </div>
 

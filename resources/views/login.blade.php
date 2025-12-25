@@ -72,10 +72,13 @@
 
 <div class="login-card text-center">
     <div class="mb-3">
-        <i class="bi bi-controller game-icon"></i>
+         <img src="{{ asset('images/cat.png') }}"
+                alt="NekoTopUp Logo"
+                height="32"
+                class="d-inline-block align-text-top">
     </div>
 
-    <h3 class="mb-4">Game Top Up Login</h3>
+    <h3 class="mb-4">Login Dulu Yuk</h3>
 
     <!-- Pesan Error -->
     @if(session('error'))
