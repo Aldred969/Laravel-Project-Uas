@@ -27,7 +27,8 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand fw-bold text-info" href="/admin/dashboard">
+        <a class="navbar-brand fw-bold text-info d-flex align-items-center gap-2" href="#">
+            <img src="{{ asset('images/cat.png') }}" height="30">
             ShiroNeko Admin
         </a>
 
