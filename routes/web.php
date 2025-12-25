@@ -8,9 +8,19 @@ use App\Http\Controllers\User\GameController as UserGameController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\ProductController;
 
+//Route Home dll
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/cara-topup', function () {
+    return view('cara-topup');
+})->name('cara-topup');
+
+Route::get('/faq', function () {
+    return view('faq');
+})->name('faq');
+//end
 
 //Route Login
 
@@ -29,6 +39,8 @@ Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 });
 
+
+//Route Transaksi
 Route::prefix('admin')->group(function () {
 
     Route::get('/transactions', [TransactionController::class, 'index']);
@@ -108,3 +120,4 @@ Route::prefix('admin')->name('admin.')->group(function () {
         ->name('games.destroy');
 });
 //End
+

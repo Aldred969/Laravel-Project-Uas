@@ -94,7 +94,7 @@
             </div>
         </div>
 
-        <!-- TOP UP -->
+        <!-- 
         <div class="col-md-4">
             <div class="user-card p-4 text-center">
                 <i class="bi bi-cash-stack"></i>
@@ -107,6 +107,7 @@
                 </a>
             </div>
         </div>
+        -->
 
         <!-- RIWAYAT -->
         <div class="col-md-4">

@@ -57,10 +57,6 @@
             transform: translateY(-5px);
         }
 
-        footer {
-            background: #000;
-        }
-
         .game-card img {
             width: 100%;
             aspect-ratio: 3 / 4;   /* 1200 x 1600 */
@@ -329,8 +325,8 @@
             <div class="col-md-3">
                 <h6 class="fw-bold mb-3">Bantuan</h6>
                 <ul class="list-unstyled small">
-                    <li><a href="#" class="footer-link">Cara Top Up</a></li>
-                    <li><a href="#" class="footer-link">FAQ</a></li>
+                    <li><a href="{{ route('cara-topup') }}" class="footer-link">Cara Top Up</a></li>
+                    <li><a href="{{ route('faq') }}" class="footer-link">FAQ</a></li>
                     <li><a href="#" class="footer-link">Kebijakan Privasi</a></li>
                     <li><a href="#" class="footer-link">Syarat & Ketentuan</a></li>
                 </ul>
