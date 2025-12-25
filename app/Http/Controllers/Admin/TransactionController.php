@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
+use Illuminate\Http\Request;
+
 
 class TransactionController extends Controller
 {
@@ -27,12 +29,12 @@ class TransactionController extends Controller
     }
 
     // Update status transaksi
-    public function updateStatus($id)
+    public function updateStatus(Request $request, $id)
     {
         $transaction = Transaction::findOrFail($id);
-        $transaction->status = 'success';
+        $transaction->status = $request->status;
         $transaction->save();
 
-        return back()->with('success', 'Transaksi berhasil diverifikasi');
+        return back()->with('success', 'Status berhasil diupdate');
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Game;
+use App\Models\Transaction;
 
 class Product extends Model
 {
@@ -12,13 +14,11 @@ class Product extends Model
         'price'
     ];
 
-    // relasi ke game
     public function game()
     {
-        return $this->belongsTo(Game::class);
+        return $this->belongsTo(Game::class, 'game_id');
     }
 
-    // relasi ke transaksi
     public function transactions()
     {
         return $this->hasMany(Transaction::class);

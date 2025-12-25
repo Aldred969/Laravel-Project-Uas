@@ -19,4 +19,10 @@ class GameController extends Controller
 
         return view('user.games.index', compact('games'));
     }
+
+    public function show($id)
+    {
+        $game = Game::with('products')->findOrFail($id);
+        return view('user.games.show', compact('game'));
+    }
 }

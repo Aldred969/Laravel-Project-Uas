@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\GameController;
 use App\Http\Controllers\User\GameController as UserGameController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\User\TopupController;
 
 //Route Home dll
 Route::get('/', function () {
@@ -70,7 +71,35 @@ Route::prefix('admin')->group(function () {
         ->name('products.destroy');
 });
 
+Route::prefix('admin')->name('admin.')->group(function () {
 
+    Route::get('/transactions', [TransactionController::class, 'index'])
+        ->name('transactions.index');
+
+    Route::get('/transactions/{id}', [TransactionController::class, 'show'])
+        ->name('transactions.show');
+
+    Route::post('/transactions/{id}/update-status',
+        [TransactionController::class, 'updateStatus'])
+        ->name('transactions.updateStatus');
+
+});
+
+Route::prefix('user')->name('user.')->group(function () {
+
+    // list game
+    Route::get('/games', [UserGameController::class, 'index'])
+        ->name('games.index');
+
+    // detail game
+    Route::get('/games/{id}', [UserGameController::class, 'show'])
+        ->name('games.show');
+
+    // checkout topup (POST)
+    Route::post('/topup/checkout', [TopupController::class, 'checkout'])
+        ->name('topup.checkout');
+
+});
 
 Route::get('/user/dashboard', function () {
 

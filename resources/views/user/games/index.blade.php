@@ -89,7 +89,7 @@
                             {{ $game->description ?? 'Top up game resmi dan terpercaya' }}
                         </p>
 
-                        <a href="#"
+                        <a href="{{ route('user.games.show', $game->id) }}"
                            class="btn btn-game btn-sm w-100">
                             Pilih Game
                         </a>

@@ -2,27 +2,23 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\Product; // ⬅️ WAJIB
 
 class Game extends Model
 {
     use HasFactory;
 
-    protected $table = 'games';
-    protected $primaryKey = 'id';
-
-    // Karena id auto increment
-    public $incrementing = true;
-
-    protected $keyType = 'int';
-
-    // Karena tabel games pakai created_at & updated_at
-    public $timestamps = true;
-
     protected $fillable = [
         'name',
         'description',
-        'image'
+        'image',
     ];
+
+    // ⬇️ RELASI INI YANG DICARI LARAVEL
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'game_id');
+    }
 }
