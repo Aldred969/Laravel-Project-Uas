@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>FAQ | ShiroNeko</title>
+<title>Syarat & Ketentuan | ShiroNeko</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
@@ -16,7 +16,7 @@ body {
     min-height: 100vh;
 }
 
-/* Hero Card */
+/* Hero */
 .hero-card {
     background: rgba(255,255,255,.05);
     backdrop-filter: blur(18px);
@@ -49,26 +49,22 @@ body {
 
 .accordion-button:not(.collapsed) {
     background: linear-gradient(145deg, #020617, #0f172a);
-    color: #ffffff;
+    color: #fff;
     box-shadow: 0 0 35px rgba(56,189,248,.55);
-}
-
-.accordion-button::after {
-    filter: invert(1);
 }
 
 .accordion-body {
     background: rgba(15,23,42,.85);
     border-radius: 0 0 18px 18px;
-    line-height: 1.8;
+    line-height: 1.75;
     padding: 22px;
     border-top: 1px solid rgba(56,189,248,.3);
-    color: #ffffff; /* teks isi putih */
+    color: #ffffff; /* 👈 teks artikel jadi putih */
 }
 
-/* Notice */
+/* Highlight box */
 .notice {
-    background: linear-gradient(135deg, rgba(56,189,248,.18), rgba(139,92,246,.18));
+    background: linear-gradient(135deg, rgba(56,189,248,.15), rgba(139,92,246,.15));
     border-left: 4px solid #38bdf8;
     padding: 16px 20px;
     border-radius: 14px;
@@ -98,55 +94,76 @@ footer {
     <div class="hero-card">
 
         <h2 class="text-center fw-bold text-info mb-3">
-            ❓ Frequently Asked Questions
+            📜 Syarat & Ketentuan
         </h2>
 
         <p class="text-center text-secondary mb-4">
-            Pertanyaan yang sering diajukan seputar layanan top up ShiroNeko
+            Dengan menggunakan layanan ShiroNeko, Anda menyetujui seluruh aturan berikut
         </p>
 
         <div class="notice">
             <i class="bi bi-info-circle me-2"></i>
-            Jika pertanyaan Anda tidak ditemukan di sini, silakan hubungi layanan pelanggan kami.
+            Pastikan Anda membaca seluruh ketentuan sebelum melakukan transaksi top up.
         </div>
 
         <div class="accordion">
 
             <div class="accordion-item">
-                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq1">
-                    <i class="bi bi-shield-check me-2"></i>
-                    Apakah top up di ShiroNeko aman?
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#t1">
+                    <i class="bi bi-person-check me-2"></i> Ketentuan Umum
                 </button>
-                <div id="faq1" class="accordion-collapse collapse">
+                <div id="t1" class="accordion-collapse collapse">
                     <div class="accordion-body">
-                        Ya. Seluruh transaksi diproses melalui sistem yang aman dan
-                        <strong>data pengguna dilindungi dengan enkripsi</strong>.
+                        ShiroNeko adalah platform marketplace top up game digital.
+                        Pengguna wajib mematuhi seluruh aturan yang berlaku selama menggunakan layanan.
                     </div>
                 </div>
             </div>
 
             <div class="accordion-item">
-                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
-                    <i class="bi bi-clock-history me-2"></i>
-                    Berapa lama proses top up?
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#t2">
+                    <i class="bi bi-wallet2 me-2"></i> Transaksi & Pembayaran
                 </button>
-                <div id="faq2" class="accordion-collapse collapse">
+                <div id="t2" class="accordion-collapse collapse">
                     <div class="accordion-body">
-                        Proses top up biasanya hanya membutuhkan beberapa menit
-                        setelah pembayaran berhasil diverifikasi oleh sistem.
+                        Semua transaksi bersifat final dan tidak dapat dibatalkan.
+                        Pastikan data akun game dan nominal top up sudah benar sebelum pembayaran.
                     </div>
                 </div>
             </div>
 
             <div class="accordion-item">
-                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">
-                    <i class="bi bi-person-check me-2"></i>
-                    Apakah wajib login?
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#t3">
+                    <i class="bi bi-clock-history me-2"></i> Proses Layanan
                 </button>
-                <div id="faq3" class="accordion-collapse collapse">
+                <div id="t3" class="accordion-collapse collapse">
                     <div class="accordion-body">
-                        Ya. Login diperlukan agar riwayat transaksi, status pesanan,
-                        dan keamanan akun dapat tercatat dengan baik.
+                        Top up akan diproses secara otomatis atau manual sesuai sistem.
+                        Keterlambatan dapat terjadi akibat gangguan sistem atau pihak ketiga.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#t4">
+                    <i class="bi bi-shield-exclamation me-2"></i> Batasan Tanggung Jawab
+                </button>
+                <div id="t4" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        ShiroNeko tidak bertanggung jawab atas kesalahan input data,
+                        gangguan server game, maupun kebijakan publisher.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#t5">
+                    <i class="bi bi-arrow-repeat me-2"></i> Perubahan Ketentuan
+                </button>
+                <div id="t5" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        Syarat & Ketentuan dapat diperbarui sewaktu-waktu.
+                        Perubahan berlaku sejak ditampilkan di halaman ini.
                     </div>
                 </div>
             </div>

@@ -327,8 +327,8 @@
                 <ul class="list-unstyled small">
                     <li><a href="{{ route('cara-topup') }}" class="footer-link">Cara Top Up</a></li>
                     <li><a href="{{ route('faq') }}" class="footer-link">FAQ</a></li>
-                    <li><a href="#" class="footer-link">Kebijakan Privasi</a></li>
-                    <li><a href="#" class="footer-link">Syarat & Ketentuan</a></li>
+                    <li><a href="{{ route('privacy') }}" class="footer-link">Kebijakan Privasi</a></li>
+                    <li><a href="{{ route('terms') }}" class="footer-link">Syarat & Ketentuan</a></li>
                 </ul>
             </div>
 

@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>FAQ | ShiroNeko</title>
+<title>Kebijakan Privasi | ShiroNeko</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
@@ -49,12 +49,8 @@ body {
 
 .accordion-button:not(.collapsed) {
     background: linear-gradient(145deg, #020617, #0f172a);
-    color: #ffffff;
+    color: #fff;
     box-shadow: 0 0 35px rgba(56,189,248,.55);
-}
-
-.accordion-button::after {
-    filter: invert(1);
 }
 
 .accordion-body {
@@ -66,7 +62,7 @@ body {
     color: #ffffff; /* teks isi putih */
 }
 
-/* Notice */
+/* Info Highlight */
 .notice {
     background: linear-gradient(135deg, rgba(56,189,248,.18), rgba(139,92,246,.18));
     border-left: 4px solid #38bdf8;
@@ -98,55 +94,82 @@ footer {
     <div class="hero-card">
 
         <h2 class="text-center fw-bold text-info mb-3">
-            ❓ Frequently Asked Questions
+            🔐 Kebijakan Privasi
         </h2>
 
         <p class="text-center text-secondary mb-4">
-            Pertanyaan yang sering diajukan seputar layanan top up ShiroNeko
+            Privasi dan keamanan data pengguna merupakan prioritas utama kami
         </p>
 
         <div class="notice">
-            <i class="bi bi-info-circle me-2"></i>
-            Jika pertanyaan Anda tidak ditemukan di sini, silakan hubungi layanan pelanggan kami.
+            <i class="bi bi-shield-lock me-2"></i>
+            Data Anda hanya digunakan untuk keperluan layanan dan tidak diperjualbelikan.
         </div>
 
         <div class="accordion">
 
             <div class="accordion-item">
-                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq1">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#p1">
+                    <i class="bi bi-database-lock me-2"></i>
+                    Informasi yang Kami Kumpulkan
+                </button>
+                <div id="p1" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        Kami dapat mengumpulkan data seperti nama, email, ID game, riwayat transaksi,
+                        alamat IP, serta informasi teknis lainnya untuk mendukung operasional layanan.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#p2">
+                    <i class="bi bi-gear-wide-connected me-2"></i>
+                    Penggunaan Informasi
+                </button>
+                <div id="p2" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        Informasi digunakan untuk memproses transaksi, verifikasi pembayaran,
+                        meningkatkan kualitas layanan, serta keperluan keamanan sistem.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#p3">
                     <i class="bi bi-shield-check me-2"></i>
-                    Apakah top up di ShiroNeko aman?
+                    Perlindungan & Keamanan Data
                 </button>
-                <div id="faq1" class="accordion-collapse collapse">
+                <div id="p3" class="accordion-collapse collapse">
                     <div class="accordion-body">
-                        Ya. Seluruh transaksi diproses melalui sistem yang aman dan
-                        <strong>data pengguna dilindungi dengan enkripsi</strong>.
+                        Kami menerapkan langkah keamanan teknis dan administratif untuk melindungi data
+                        pengguna dari akses tidak sah, penyalahgunaan, atau kebocoran data.
                     </div>
                 </div>
             </div>
 
             <div class="accordion-item">
-                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
-                    <i class="bi bi-clock-history me-2"></i>
-                    Berapa lama proses top up?
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#p4">
+                    <i class="bi bi-people me-2"></i>
+                    Pembagian Data kepada Pihak Ketiga
                 </button>
-                <div id="faq2" class="accordion-collapse collapse">
+                <div id="p4" class="accordion-collapse collapse">
                     <div class="accordion-body">
-                        Proses top up biasanya hanya membutuhkan beberapa menit
-                        setelah pembayaran berhasil diverifikasi oleh sistem.
+                        Data pengguna tidak dijual atau disewakan.
+                        Informasi hanya dibagikan kepada mitra pembayaran atau pihak terkait
+                        apabila diperlukan untuk memproses transaksi.
                     </div>
                 </div>
             </div>
 
             <div class="accordion-item">
-                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">
-                    <i class="bi bi-person-check me-2"></i>
-                    Apakah wajib login?
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#p5">
+                    <i class="bi bi-arrow-repeat me-2"></i>
+                    Perubahan Kebijakan Privasi
                 </button>
-                <div id="faq3" class="accordion-collapse collapse">
+                <div id="p5" class="accordion-collapse collapse">
                     <div class="accordion-body">
-                        Ya. Login diperlukan agar riwayat transaksi, status pesanan,
-                        dan keamanan akun dapat tercatat dengan baik.
+                        Kebijakan privasi ini dapat diperbarui sewaktu-waktu.
+                        Setiap perubahan akan ditampilkan di halaman ini dan berlaku sejak diperbarui.
                     </div>
                 </div>
             </div>

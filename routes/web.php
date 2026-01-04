@@ -14,7 +14,6 @@ use App\Http\Controllers\User\TransactionController as UserTransactionController
 Route::get('/', function () {
     return view('home');
 });
-
 Route::get('/cara-topup', function () {
     return view('cara-topup');
 })->name('cara-topup');
@@ -22,6 +21,15 @@ Route::get('/cara-topup', function () {
 Route::get('/faq', function () {
     return view('faq');
 })->name('faq');
+
+Route::get('/privacy-policy', function () {
+    return view('privacy');
+})->name('privacy');
+
+Route::get('/terms-and-conditions', function () {
+    return view('terms');
+})->name('terms');
+
 //end
 
 //Route Login
