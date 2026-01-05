@@ -91,6 +91,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('/transactions/{id}/update-status',
         [TransactionController::class, 'updateStatus'])
         ->name('transactions.updateStatus');
+    
+    Route::delete('/transactions/{id}',
+        [TransactionController::class, 'destroy'])
+        ->name('transactions.destroy');
 
 });
 

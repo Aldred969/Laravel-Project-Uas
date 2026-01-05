@@ -37,4 +37,15 @@ class TransactionController extends Controller
 
         return back()->with('success', 'Status berhasil diupdate');
     }
+
+    public function destroy($id)
+    {
+    $transaction = Transaction::findOrFail($id);
+
+    $transaction->delete();
+
+    return redirect()
+        ->route('admin.transactions.index')
+        ->with('success', 'Transaksi berhasil dihapus');
+    }
 }

@@ -188,6 +188,20 @@
                 </button>
             </form>
 
+            <hr class="my-4 border-info">
+
+            <form action="{{ route('admin.transactions.destroy', $transaction->id) }}"
+                method="POST"
+                onsubmit="return confirm('Yakin ingin menghapus transaksi ini secara permanen?')">
+                @csrf
+                @method('DELETE')
+
+                <button class="btn btn-danger w-100">
+                    <i class="bi bi-trash"></i> Hapus Transaksi
+                </button>
+            </form>
+
+
         </div>
     </div>
 

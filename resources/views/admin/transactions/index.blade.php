@@ -29,9 +29,15 @@
                     <a href="/admin/transactions/{{ $t->id }}" class="btn btn-info btn-sm">
                         Detail
                     </a>
-                    <a href="/admin/transactions/delete/{{ $t->id }}" class="btn btn-danger btn-sm">
-                        Hapus
-                    </a>
+                    <form action="{{ route('admin.transactions.destroy', $t->id) }}"
+                          method="POST"
+                          class="d-inline"
+                          onsubmit="return confirm('Yakin ingin menghapus transaksi ini?')">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger btn-sm">
+                            Hapus
+                        </button>
                 </td>
             </tr>
             @endforeach

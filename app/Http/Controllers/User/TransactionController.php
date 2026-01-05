@@ -26,7 +26,7 @@ class TransactionController extends Controller
             ->where('status', 'pending')
             ->firstOrFail();
 
-        $transaction->status = 'cancelled';
+        $transaction->status = 'failed';
         $transaction->save();
 
         return back()->with('success', 'Transaksi berhasil dibatalkan');
