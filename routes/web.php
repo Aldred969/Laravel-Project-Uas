@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\User\TopupController;
 use App\Http\Controllers\User\TransactionController as UserTransactionController;
+use App\Http\Controllers\User\DashboardController; //DashboarUser
+
 
 //Route Home dll
 Route::get('/', function () {
@@ -115,14 +117,14 @@ Route::prefix('user')->name('user.')->group(function () {
 });
 
     // Route User
-Route::get('/user/dashboard', function () {
+    Route::get('/user/dashboard', function () {
 
     if (!session()->has('user_id') || session('role') != 'user') {
         return redirect('/login');
     }
 
     return view('user.dashboard');
-});
+}); 
 
 // Riwayat
 Route::get('/user/riwayat', [UserTransactionController::class, 'index']);
@@ -169,3 +171,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
 });
 //End
 
+//Tambahan Routes Baru
+Route::get('/user/dashboard', [DashboardController::class, 'index'])
+    ->name('user.dashboard');

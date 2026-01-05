@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Product; // ⬅️ WAJIB
+use App\Models\Product; // WAJIB ada
 
 class Game extends Model
 {
@@ -16,7 +16,7 @@ class Game extends Model
         'image',
     ];
 
-    // ⬇️ RELASI INI YANG DICARI LARAVEL
+    // Relasi
     public function products()
     {
         return $this->hasMany(Product::class, 'game_id');
