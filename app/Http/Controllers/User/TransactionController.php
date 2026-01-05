@@ -4,12 +4,19 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
+use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
-    // Riwayat transaksi user
+    // ======================
+    // RIWAYAT TRANSAKSI USER
+    // ======================
     public function index()
     {
+        if (!session()->has('user_id') || session('role') !== 'user') {
+            return redirect('/login');
+        }
+
         $transactions = Transaction::with('product.game')
             ->where('user_id', session('user_id'))
             ->latest()
@@ -18,7 +25,41 @@ class TransactionController extends Controller
         return view('user.riwayat', compact('transactions'));
     }
 
-    // Batalkan transaksi (hanya jika pending)
+    // ======================
+    // SIMPAN TRANSAKSI BARU
+    // (Beli Sekarang)
+    // ======================
+    public function store(Request $request)
+    {
+        if (!session()->has('user_id') || session('role') !== 'user') {
+            return redirect('/login');
+        }
+
+        // Validasi input
+        $request->validate([
+            'game_id'      => 'required|integer',
+            'product_id'   => 'required|integer',
+            'game_account' => 'required|string',
+            'total_price'  => 'required|numeric',
+        ]);
+
+        // Simpan transaksi
+        Transaction::create([
+            'user_id'      => session('user_id'),
+            'game_id'      => $request->game_id,
+            'product_id'   => $request->product_id,
+            'game_account' => $request->game_account,
+            'total_price'  => $request->total_price,
+            'status'       => 'pending',
+        ]);
+
+        return redirect('/user/riwayat')
+            ->with('success', 'Transaksi berhasil dibuat');
+    }
+
+    // ======================
+    // BATALKAN TRANSAKSI
+    // ======================
     public function cancel($id)
     {
         $transaction = Transaction::where('id', $id)

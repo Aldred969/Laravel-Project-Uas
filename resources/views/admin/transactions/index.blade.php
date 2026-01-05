@@ -4,6 +4,14 @@
 <div class="container mt-4">
     <h4 class="text-info mb-4">Data Transaksi</h4>
 
+    <div class="d-flex gap-2">
+             <!-- KEMBALI KE DASHBOARD -->
+         <a href="{{ url('/admin/dashboard') }}"
+             class="btn btn-secondary fw-bold">
+                    ← Kembali
+         </a>
+    </div>
+
     <table class="table table-dark table-hover">
         <thead>
             <tr>

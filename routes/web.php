@@ -174,3 +174,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
 //Tambahan Routes Baru
 Route::get('/user/dashboard', [DashboardController::class, 'index'])
     ->name('user.dashboard');
+
+
+// Tambahan Routes Transaksi baru
+Route::post('/user/checkout', 
+    [UserTransactionController::class, 'store']
+)->name('user.checkout');
