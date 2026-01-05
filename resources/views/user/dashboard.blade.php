@@ -112,6 +112,18 @@
 </head>
 <body>
 
+<!-- NAVBAR -->
+<nav class="navbar navbar-dark bg-black shadow">
+    <div class="container">
+        <a class="navbar-brand fw-bold text-info d-flex align-items-center gap-2"
+           href="/user/dashboard">
+            <img src="{{ asset('images/cat.png') }}" height="28">
+            ShiroNeko
+        </a>
+        <a href="/logout" class="btn btn-outline-info btn-sm">Logout</a>
+    </div>
+</nav>
+
 <!-- SIDEBAR -->
 <div class="sidebar">
     <a href="/user/dashboard" class="active">
@@ -219,8 +231,14 @@
         <div class="col-md-2 col-sm-4">
             <div class="game-card text-center">
 
-                <img src="{{ asset('storage/'.$game->image) }}"
-                     class="w-100 rounded">
+               <!-- GAMBAR -->
+                    @if ($game->image)
+                        <img src="{{ asset('images/games/'.$game->image) }}" class="w-100">
+                    @else
+                        <div class="bg-secondary text-center py-5">
+                            No Image
+                        </div>
+                    @endif
 
                 <h6 class="mt-2 text-info">
                     {{ $game->name }}
