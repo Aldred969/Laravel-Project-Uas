@@ -26,7 +26,7 @@
 
                 <!-- NAMA NOMINAL -->
                 <div class="mb-3">
-                    <label class="form-label text-white">Nama Nominal</label>
+                    <label class="form-label text-white">Nama Produk</label>
                     <input type="text"
                            name="name"
                            class="form-control bg-dark text-white border-secondary"

@@ -8,7 +8,7 @@
 
     <!-- JUDUL + TOMBOL TAMBAH -->
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h3 class="fw-bold text-info">Kelola Game</h3>
+        <h3 class="fw-bold text-info">Kelola Produk</h3>
 
      <div class="d-flex gap-2">
              <!-- KEMBALI KE DASHBOARD -->
@@ -35,7 +35,6 @@
                         <th>No</th>
                         <th>Nama Produk</th>
                         <th>Harga</th>
-                        <th>Stok</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
