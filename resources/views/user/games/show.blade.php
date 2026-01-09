@@ -72,14 +72,14 @@ body {
 </div>
 </div>
 
-<!-- STEP 1 -->
+<!-- STEP 1 Bar Id -->
 <div class="card-box p-4 mb-4">
 <h5 class="text-info fw-bold mb-3">1️⃣ ID Pengguna</h5>
 <input type="text" id="game_account" class="form-control"
        placeholder="Masukkan ID Game" required>
 </div>
 
-<!-- STEP 2 -->
+<!-- STEP 2 Bar Nominal Produk -->
 <div class="card-box p-4 mb-4">
 <h5 class="text-info fw-bold mb-3">2️⃣ Pilih Nominal</h5>
 <div class="row g-3">
@@ -91,13 +91,13 @@ body {
      data-price="{{ $product->price }}">
     <h6 class="text-info fw-bold">{{ $product->name }}</h6>
     <p>Rp {{ number_format($product->price,0,',','.') }}</p>
-</div>
-</div>
+            </div>
+        </div>
 @endforeach
-</div>
+    </div>
 </div>
 
-<!-- STEP 3 -->
+<!-- STEP 3 Bar Pembayaran -->
 <div class="card-box p-4">
 <h5 class="text-info fw-bold mb-3">3️⃣ Metode Pembayaran</h5>
 <div class="row g-3">

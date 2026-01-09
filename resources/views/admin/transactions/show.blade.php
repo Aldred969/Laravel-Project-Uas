@@ -2,75 +2,101 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Detail Transaksi | ShiroNeko</title>
+    <title>Detail Transaksi | ShiroNeko Admin</title>
 
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
         body {
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            color: #fff;
+            background: radial-gradient(circle at top, #1a1a2e, #0b0b14);
+            color: #e5e7eb;
             min-height: 100vh;
         }
 
+        /* CARD */
         .card-neon {
-            background: #111;
-            border-radius: 18px;
-            box-shadow: 0 0 30px rgba(0,255,255,.35);
+            background: #020617;
+            border-radius: 20px;
+            box-shadow: 0 0 45px rgba(56,189,248,.25);
+            border: 1px solid rgba(56,189,248,.15);
         }
 
-        .card-header {
-            background: transparent;
-            border-bottom: 1px solid rgba(0,255,255,.3);
-            color: #00ffd5;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .detail-box {
-            background: #161616;
-            border-radius: 12px;
-            padding: 1.2rem;
-        }
-
-        .detail-row {
-            display: flex;
-            padding: .6rem 0;
-            border-bottom: 1px solid rgba(255,255,255,.08);
-        }
-
-        .detail-row:last-child {
-            border-bottom: none;
-        }
-
-        .detail-label {
-            width: 35%;
-            color: #00ffd5;
+        /* SECTION TITLE */
+        .section-title {
+            font-size: .8rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #38bdf8;
+            margin-bottom: 14px;
             font-weight: 600;
         }
 
-        .detail-sep {
-            width: 5%;
-            text-align: center;
-            color: #aaa;
+        /* INFO LIST */
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 14px 0;
+            border-bottom: 1px dashed rgba(255,255,255,.08);
         }
 
-        .detail-value {
-            width: 60%;
-            color: #fff;
+        .info-item:last-child {
+            border-bottom: none;
         }
 
-        .badge-status {
-            padding: .45em .9em;
+        .label {
+            color: #94a3b8;
             font-size: .85rem;
         }
 
+        .value {
+            font-weight: 600;
+            color: #e5e7eb;
+        }
+
+        /* STATUS BADGE */
+        .badge-status {
+            padding: .5em 1em;
+            font-size: .8rem;
+            border-radius: 30px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-pending {
+            background: rgba(234,179,8,.15);
+            color: #facc15;
+        }
+
+        .status-success {
+            background: rgba(34,197,94,.15);
+            color: #4ade80;
+        }
+
+        .status-failed {
+            background: rgba(239,68,68,.15);
+            color: #f87171;
+        }
+
+        /* BUTTON */
         .btn-neon {
             background: linear-gradient(45deg, #00ffd5, #00b3ff);
             border: none;
             color: #000;
             font-weight: bold;
+        }
+
+        .btn-neon:hover {
+            filter: brightness(1.1);
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(56,189,248,.4), transparent);
+            margin: 20px 0;
         }
     </style>
 </head>
@@ -84,123 +110,117 @@
             <img src="{{ asset('images/cat.png') }}" height="28">
             ShiroNeko Admin
         </a>
-
-        <a href="/logout" class="btn btn-outline-info btn-sm">
-            Logout
-        </a>
+        <a href="/logout" class="btn btn-outline-info btn-sm">Logout</a>
     </div>
 </nav>
 
 <div class="container py-5">
 
-    <!-- KEMBALI -->
+    <!-- BACK -->
     <a href="{{ route('admin.transactions.index') }}"
        class="btn btn-outline-info btn-sm mb-4">
         <i class="bi bi-arrow-left"></i> Kembali
     </a>
 
-    <div class="card card-neon">
-        <div class="card-header">
-            <i class="bi bi-receipt"></i> Detail Transaksi
-        </div>
+    <div class="card card-neon p-4">
 
-        <div class="card-body">
+        <div class="row g-4">
 
-            <!-- DETAIL -->
-            <div class="detail-box mb-4">
-
-                <div class="detail-row">
-                    <div class="detail-label">ID Transaksi</div>
-                    <div class="detail-sep">:</div>
-                    <div class="detail-value">#{{ $transaction->id }}</div>
+            <!-- LEFT : DETAIL -->
+            <div class="col-lg-8">
+                <div class="section-title">
+                    <i class="bi bi-info-circle"></i> Informasi Transaksi
                 </div>
 
-                <div class="detail-row">
-                    <div class="detail-label">User</div>
-                    <div class="detail-sep">:</div>
-                    <div class="detail-value">{{ $transaction->user->name ?? '-' }}</div>
+                <div class="info-item">
+                    <span class="label">ID Transaksi</span>
+                    <span class="value">#{{ $transaction->id }}</span>
                 </div>
 
-                <div class="detail-row">
-                    <div class="detail-label">Game</div>
-                    <div class="detail-sep">:</div>
-                    <div class="detail-value">{{ $transaction->product->game->name ?? '-' }}</div>
+                <div class="info-item">
+                    <span class="label">User</span>
+                    <span class="value">{{ $transaction->user->name ?? '-' }}</span>
                 </div>
 
-                <div class="detail-row">
-                    <div class="detail-label">Produk</div>
-                    <div class="detail-sep">:</div>
-                    <div class="detail-value">{{ $transaction->product->name ?? '-' }}</div>
+                <div class="info-item">
+                    <span class="label">Game</span>
+                    <span class="value">{{ $transaction->product->game->name ?? '-' }}</span>
                 </div>
 
-                <div class="detail-row">
-                    <div class="detail-label">Harga</div>
-                    <div class="detail-sep">:</div>
-                    <div class="detail-value">
-                        Rp {{ number_format($transaction->product->price ?? 0, 0, ',', '.') }}
-                    </div>
+                <div class="info-item">
+                    <span class="label">Produk</span>
+                    <span class="value">{{ $transaction->product->name ?? '-' }}</span>
                 </div>
 
-                <div class="detail-row">
-                    <div class="detail-label">Akun Game</div>
-                    <div class="detail-sep">:</div>
-                    <div class="detail-value">{{ $transaction->game_account }}</div>
+                <div class="info-item">
+                    <span class="label">Harga</span>
+                    <span class="value">
+                        Rp {{ number_format($transaction->product->price ?? 0,0,',','.') }}
+                    </span>
                 </div>
 
-                <div class="detail-row">
-                    <div class="detail-label">Status</div>
-                    <div class="detail-sep">:</div>
-                    <div class="detail-value">
-                        @if ($transaction->status === 'pending')
-                            <span class="badge bg-warning badge-status">Pending</span>
-                        @elseif ($transaction->status === 'success')
-                            <span class="badge bg-success badge-status">Success</span>
-                        @else
-                            <span class="badge bg-danger badge-status">Failed</span>
-                        @endif
-                    </div>
+                <div class="info-item">
+                    <span class="label">ID Game User</span>
+                    <span class="value">{{ $transaction->game_account }}</span>
                 </div>
 
-                <div class="detail-row">
-                    <div class="detail-label">Tanggal</div>
-                    <div class="detail-sep">:</div>
-                    <div class="detail-value">
+                <div class="info-item">
+                    <span class="label">Tanggal</span>
+                    <span class="value">
                         {{ $transaction->created_at->format('d M Y H:i') }}
-                    </div>
+                    </span>
                 </div>
-
             </div>
 
-            <!-- UPDATE STATUS -->
-            <form action="{{ route('admin.transactions.updateStatus', $transaction->id) }}"
-                  method="POST"
-                  class="d-flex gap-2 flex-wrap">
-                @csrf
+            <!-- RIGHT : ACTION -->
+            <div class="col-lg-4">
+                <div class="section-title">
+                    <i class="bi bi-gear"></i> Status & Aksi
+                </div>
 
-                <select name="status" class="form-select w-auto">
-                    <option value="pending" {{ $transaction->status == 'pending' ? 'selected' : '' }}>Pending</option>
-                    <option value="success" {{ $transaction->status == 'success' ? 'selected' : '' }}>Success</option>
-                    <option value="failed" {{ $transaction->status == 'failed' ? 'selected' : '' }}>Failed</option>
-                </select>
+                <div class="mb-3">
+                    @if ($transaction->status === 'pending')
+                        <span class="badge-status status-pending">
+                            <i class="bi bi-hourglass-split"></i> Pending
+                        </span>
+                    @elseif ($transaction->status === 'success')
+                        <span class="badge-status status-success">
+                            <i class="bi bi-check-circle"></i> Success
+                        </span>
+                    @else
+                        <span class="badge-status status-failed">
+                            <i class="bi bi-x-circle"></i> Failed
+                        </span>
+                    @endif
+                </div>
 
-                <button class="btn btn-neon">
-                    <i class="bi bi-check-circle"></i> Update Status
-                </button>
-            </form>
+                <form action="{{ route('admin.transactions.updateStatus', $transaction->id) }}"
+                      method="POST" class="mb-3">
+                    @csrf
+                    <select name="status" class="form-select mb-2">
+                        <option value="pending" {{ $transaction->status == 'pending' ? 'selected' : '' }}>Pending</option>
+                        <option value="success" {{ $transaction->status == 'success' ? 'selected' : '' }}>Success</option>
+                        <option value="failed" {{ $transaction->status == 'failed' ? 'selected' : '' }}>Failed</option>
+                    </select>
 
-            <hr class="my-4 border-info">
+                    <button class="btn btn-neon w-100">
+                        <i class="bi bi-check-circle"></i> Update Status
+                    </button>
+                </form>
 
-            <form action="{{ route('admin.transactions.destroy', $transaction->id) }}"
-                method="POST"
-                onsubmit="return confirm('Yakin ingin menghapus transaksi ini secara permanen?')">
-                @csrf
-                @method('DELETE')
+                <div class="divider"></div>
 
-                <button class="btn btn-danger w-100">
-                    <i class="bi bi-trash"></i> Hapus Transaksi
-                </button>
-            </form>
+                <form action="{{ route('admin.transactions.destroy', $transaction->id) }}"
+                      method="POST"
+                      onsubmit="return confirm('Yakin ingin menghapus transaksi ini?')">
+                    @csrf
+                    @method('DELETE')
 
+                    <button class="btn btn-danger w-100">
+                        <i class="bi bi-trash"></i> Hapus Transaksi
+                    </button>
+                </form>
+            </div>
 
         </div>
     </div>
