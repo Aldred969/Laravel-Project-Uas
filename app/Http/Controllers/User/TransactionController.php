@@ -30,32 +30,28 @@ class TransactionController extends Controller
     // (Beli Sekarang)
     // ======================
     public function store(Request $request)
-    {
-        if (!session()->has('user_id') || session('role') !== 'user') {
-            return redirect('/login');
-        }
-
-        // Validasi input
-        $request->validate([
-            'game_id'      => 'required|integer',
-            'product_id'   => 'required|integer',
-            'game_account' => 'required|string',
-            'total_price'  => 'required|numeric',
-        ]);
-
-        // Simpan transaksi
-        Transaction::create([
-            'user_id'      => session('user_id'),
-            'game_id'      => $request->game_id,
-            'product_id'   => $request->product_id,
-            'game_account' => $request->game_account,
-            'total_price'  => $request->total_price,
-            'status'       => 'pending',
-        ]);
-
-        return redirect('/user/riwayat')
-            ->with('success', 'Transaksi berhasil dibuat');
+{
+    if (!session()->has('user_id')) {
+        return redirect('/login');
     }
+
+    $request->validate([
+        'product_id'      => 'required|integer',
+        'game_account'    => 'required|string',
+        'payment_method'  => 'required|string'
+    ]);
+
+    Transaction::create([
+        'user_id'        => session('user_id'),
+        'product_id'     => $request->product_id,
+        'game_account'   => $request->game_account,
+        'payment_method' => $request->payment_method,
+        'status'         => 'pending'
+    ]);
+
+    return redirect('/user/riwayat')
+        ->with('success', 'Transaksi berhasil dibuat');
+}
 
     // ======================
     // BATALKAN TRANSAKSI

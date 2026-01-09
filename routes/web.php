@@ -180,3 +180,18 @@ Route::get('/user/dashboard', [DashboardController::class, 'index'])
 Route::post('/user/checkout', 
     [UserTransactionController::class, 'store']
 )->name('user.checkout');
+
+Route::prefix('user')->name('user.')->group(function () {
+
+    Route::get('/games/{id}', [UserGameController::class, 'show'])
+        ->name('games.show');
+
+    Route::post('/checkout', 
+        [UserTransactionController::class, 'store']
+    )->name('checkout');
+
+    Route::get('/riwayat', 
+        [UserTransactionController::class, 'index']
+    )->name('riwayat');
+
+});

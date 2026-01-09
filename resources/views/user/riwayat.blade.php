@@ -8,82 +8,60 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
-            body {
-        background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-        color: #fff;
-        min-height: 100vh;
-    }
+        body {
+            background: radial-gradient(circle at top, #1a1a2e, #0b0b14);
+            color: #e5e7eb;
+            min-height: 100vh;
+        }
 
-    .card-neon {
-        background: #0b0b14;
-        border-radius: 16px;
-        box-shadow: 0 0 25px rgba(0,255,255,.25);
-    }
+        .card-neon {
+            background: #020617;
+            border-radius: 18px;
+            box-shadow: 0 0 35px rgba(56,189,248,.25);
+            border: 1px solid rgba(56,189,248,.15);
+        }
 
-        /* HEADER TABEL */
-    .table thead th {
-        background-color: #020617 !important;
-        color: #38bdf8 !important; /* BIRU NEON */
-        font-weight: 700;
-        font-size: 0.85rem;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-        padding: 14px;
-        border: none !important;
-    }
+        .table thead th {
+            background: rgba(15,23,42,.95);
+            color: #38bdf8;
+            font-size: .75rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            border: none;
+            padding: 16px;
+        }
 
-    /* JARAK GARIS BAWAH HEADER */
-    .table thead tr {
-        border-bottom: 1px solid rgba(0,255,255,.25);
+        .table tbody td {
+            padding: 16px;
+            border-color: rgba(255,255,255,.06);
+            vertical-align: middle;
+        }
 
-    /* ==== TABLE FIX ==== */
-    .table {
-        background: #111827;
-        border-radius: 12px;
-        overflow: hidden;
-    }
+        .table tbody tr:hover {
+            background: rgba(56,189,248,.08);
+        }
 
-    .table thead {
-        background: #020617;
-    }
+        .badge-status {
+            font-size: .75rem;
+            padding: .45em .8em;
+            border-radius: 20px;
+            font-weight: 600;
+        }
 
-    .table th {
-        color: #38bdf8;
-        font-weight: 600;
-        text-transform: uppercase;
-        font-size: 0.85rem;
-        padding: 14px;
-    }
+        .status-pending { background: rgba(234,179,8,.15); color: #facc15; }
+        .status-success { background: rgba(34,197,94,.15); color: #4ade80; }
+        .status-failed  { background: rgba(239,68,68,.15); color: #f87171; }
 
-    .table td {
-        color: #e5e7eb;
-        padding: 14px;
-        background: #111827;
-    }
+        .btn-cancel {
+            background: rgba(239,68,68,.15);
+            border: 1px solid rgba(239,68,68,.4);
+            color: #f87171;
+        }
 
-    .table tbody tr {
-        transition: all .25s ease;
-    }
-
-    .table tbody tr:hover {
-        background: rgba(0,255,255,.08);
-    }
-
-    .table tbody tr:not(:last-child) td {
-        border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-
-    .badge {
-        font-size: .8rem;
-        padding: .45em .8em;
-    }
-
-    .btn-neon {
-        background: linear-gradient(45deg, #00ffd5, #00b3ff);
-        border: none;
-        color: #000;
-        font-weight: bold;
-    }
+        .btn-cancel:hover {
+            background: rgba(239,68,68,.35);
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -102,25 +80,27 @@
 
 <div class="container py-5">
 
-    <!-- JUDUL -->
+    <!-- HEADER -->
     <div class="text-center mb-4">
-        <h3 class="fw-bold text-info">Riwayat Transaksi Saya</h3>
-        <p class="text-light">Pantau status top up game kamu</p>
+        <h3 class="fw-bold text-info">RIWAYAT TRANSAKSI</h3>
+        <p class="text-secondary">Pantau status top up game kamu</p>
     </div>
 
     <div class="card card-neon p-4">
 
-        <table class="table table-hover mb-0">
+        <table class="table align-middle">
             <thead>
-                <tr class="text-info">
-                    <th>#</th>
-                    <th>Game</th>
-                    <th>Nominal</th>
-                    <th>Harga</th>
-                    <th>Status</th>
-                    <th>Tanggal</th>
-                    <th>Aksi</th>
-                </tr>
+            <tr>
+                <th>#</th>
+                <th>Game</th>
+                <th>Produk</th>
+                <th>ID Game</th>
+                <th>Payment</th>
+                <th>Harga</th>
+                <th>Status</th>
+                <th>Tanggal</th>
+                <th class="text-center">Aksi</th>
+            </tr>
             </thead>
 
             <tbody>
@@ -128,56 +108,79 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
 
-                    <td>{{ $trx->product->game->name ?? '-' }}</td>
+                    <td class="fw-semibold text-info">
+                        {{ $trx->product->game->name ?? '-' }}
+                    </td>
 
                     <td>{{ $trx->product->name ?? '-' }}</td>
 
+                    <td class="text-warning fw-semibold">
+                        {{ $trx->game_account }}
+                    </td>
+
                     <td>
-                        Rp {{ number_format($trx->product->price ?? 0, 0, ',', '.') }}
+                        <span class="badge bg-info text-dark">
+                            {{ strtoupper($trx->payment_method) }}
+                        </span>
+                    </td>
+
+                    <td>
+                        Rp {{ number_format($trx->product->price ?? 0,0,',','.') }}
                     </td>
 
                     <td>
                         @if ($trx->status === 'pending')
-                            <span class="badge bg-warning text-dark">Pending</span>
+                            <span class="badge-status status-pending">
+                                <i class="bi bi-hourglass-split"></i> Pending
+                            </span>
                         @elseif ($trx->status === 'success')
-                            <span class="badge bg-success">Success</span>
-                        @elseif ($trx->status === 'failed')
-                            <span class="badge bg-danger">Failed</span>
+                            <span class="badge-status status-success">
+                                <i class="bi bi-check-circle"></i> Success
+                            </span>
+                        @else
+                            <span class="badge-status status-failed">
+                                <i class="bi bi-x-circle"></i> Failed
+                            </span>
                         @endif
                     </td>
 
-                    <td>{{ $trx->created_at->format('d M Y H:i') }}</td>
+                    <td class="text-secondary">
+                        {{ $trx->created_at->format('d M Y H:i') }}
+                    </td>
 
-                    <td>
+                    <td class="text-center">
                         @if ($trx->status === 'pending')
                             <form action="/user/riwayat/{{ $trx->id }}/cancel"
                                   method="POST"
                                   onsubmit="return confirm('Batalkan transaksi ini?')">
                                 @csrf
-                                <button class="btn btn-sm btn-danger">
-                                    Batalkan
+                                <button class="btn btn-sm btn-cancel">
+                                    <i class="bi bi-x-lg"></i> Batalkan
                                 </button>
                             </form>
                         @else
-                            <span class="text-secondary small">-</span>
+                            —
                         @endif
                     </td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="7" class="text-center text-secondary py-4">
+                    <td colspan="9" class="text-center text-secondary py-5">
+                        <i class="bi bi-inbox fs-2 d-block mb-2"></i>
                         Belum ada transaksi
                     </td>
                 </tr>
             @endforelse
             </tbody>
-
         </table>
+
     </div>
 
-    <a href="/user/dashboard" class="btn btn-outline-info mt-4">
-        <i class="bi bi-arrow-left"></i> Kembali ke Dashboard
-    </a>
+    <div class="text-center mt-4">
+        <a href="/user/dashboard" class="btn btn-outline-info">
+            <i class="bi bi-arrow-left"></i> Kembali ke Dashboard
+        </a>
+    </div>
 
 </div>
 
