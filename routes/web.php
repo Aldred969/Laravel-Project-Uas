@@ -72,8 +72,9 @@ Route::prefix('admin')->group(function () {
     Route::post('/products', [ProductController::class, 'store'])
         ->name('products.store');
 
-    Route::get('/games/{id}/edit', [GameController::class, 'edit'])
-    ->name('games.edit');
+    // ✅ INI YANG TADI KURANG
+    Route::get('/products/{id}/edit', [ProductController::class, 'edit'])
+        ->name('products.edit');
 
     Route::put('/products/{id}', [ProductController::class, 'update'])
         ->name('products.update');
@@ -81,6 +82,7 @@ Route::prefix('admin')->group(function () {
     Route::delete('/products/{id}', [ProductController::class, 'destroy'])
         ->name('products.destroy');
 });
+
 
 Route::prefix('admin')->name('admin.')->group(function () {
 
