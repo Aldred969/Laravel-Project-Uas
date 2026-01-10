@@ -57,31 +57,37 @@ class GameController extends Controller
     /* =====================
         UPDATE DATA
     ======================*/
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $game = Game::findOrFail($request->id);
+        $request->validate([
+            'name'        => 'required',
+            'description' => 'nullable',
+            'image'       => 'nullable|image|mimes:jpg,png,jpeg,webp|max:2048'
+        ]);
 
-        $game->name        = $request->name;
+        $game = Game::findOrFail($id);
+
+        $game->name = $request->name;
         $game->description = $request->description;
 
-        // Jika ganti gambar
         if ($request->hasFile('image')) {
 
-            $path = public_path('images/games/'.$game->image);
-            if (file_exists($path)) {
-                unlink($path);
+            $oldPath = public_path('images/games/'.$game->image);
+            if ($game->image && file_exists($oldPath)) {
+                unlink($oldPath);
             }
 
-            $imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $imageName = time().'.'.$request->image->extension();
             $request->image->move(public_path('images/games'), $imageName);
             $game->image = $imageName;
         }
 
         $game->save();
 
-        session()->flash('success', 'Game berhasil diupdate');
-        return redirect()->route('admin.games.index');
+        return redirect()->route('admin.games.index')
+            ->with('success', 'Game berhasil diupdate');
     }
+
 
     /* =====================
         HAPUS DATA

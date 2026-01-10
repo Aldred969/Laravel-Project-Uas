@@ -72,8 +72,8 @@ Route::prefix('admin')->group(function () {
     Route::post('/products', [ProductController::class, 'store'])
         ->name('products.store');
 
-    Route::get('/products/{id}/edit', [ProductController::class, 'edit'])
-        ->name('products.edit');
+    Route::get('/games/{id}/edit', [GameController::class, 'edit'])
+    ->name('games.edit');
 
     Route::put('/products/{id}', [ProductController::class, 'update'])
         ->name('products.update');
@@ -163,7 +163,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/games/edit/{id}', [GameController::class, 'edit'])
         ->name('games.edit');
 
-    Route::put('/games/update', [GameController::class, 'update'])
+    Route::put('/games/{id}', [GameController::class, 'update'])
         ->name('games.update');
 
     Route::get('/games/delete/{id}', [GameController::class, 'destroy'])
