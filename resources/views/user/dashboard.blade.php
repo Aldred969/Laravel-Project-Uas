@@ -109,6 +109,32 @@ body {
     height: 140px;
     object-fit: cover;
 }
+
+/* FOOTER */
+.footer {
+    background: linear-gradient(180deg, #0b0b14, #14142b);
+    padding: 40px 0 25px;
+    box-shadow: 0 -5px 20px rgba(0,255,213,.15);
+}
+
+.footer-link {
+    color: #aaa;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 6px;
+    transition: .3s;
+}
+
+.footer-link:hover {
+    color: #00ffd5;
+    transform: translateX(4px);
+}
+
+.footer-divider {
+    border-color: rgba(255,255,255,.08);
+    margin: 20px 0;
+}
+
 </style>
 </head>
 <body>
@@ -215,6 +241,53 @@ body {
 </div>
 @endforelse
 </div>
+
+<!-- FOOTER -->
+<footer class="footer mt-5">
+    <div class="container">
+        <div class="row text-center text-md-start">
+
+            <!-- BRAND -->
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold text-info d-flex align-items-center justify-content-center justify-content-md-start gap-2">
+                    <img src="{{ asset('images/cat.png') }}" height="26">
+                    ShiroNeko
+                </h5>
+                <p class="text-secondary small mt-2">
+                    Platform top up game cepat, aman, dan terpercaya.
+                </p>
+            </div>
+
+            <!-- MENU -->
+            <div class="col-md-4 mb-4">
+                <h6 class="text-info fw-bold">Menu</h6>
+                <ul class="list-unstyled small">
+                    <li><a href="/user/dashboard" class="footer-link">Dashboard</a></li>
+                    <li><a href="/user/games" class="footer-link">Top Up Game</a></li>
+                    <li><a href="/user/riwayat" class="footer-link">Riwayat Transaksi</a></li>
+                </ul>
+            </div>
+
+            <!-- INFO -->
+            <div class="col-md-4 mb-4">
+                <h6 class="text-info fw-bold">Informasi</h6>
+                <ul class="list-unstyled small">
+                    <li><a href="/cara-topup" class="footer-link">Cara Top Up</a></li>
+                    <li><a href="/faq" class="footer-link">FAQ</a></li>
+                    <li><a href="/privacy-policy" class="footer-link">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <hr class="footer-divider">
+
+        <div class="text-center small text-secondary">
+            © {{ date('Y') }} <span class="text-info fw-bold">ShiroNeko</span>. All rights reserved.
+        </div>
+    </div>
+</footer>
+
 
 </div>
 
