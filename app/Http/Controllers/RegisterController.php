@@ -10,23 +10,23 @@ class RegisterController extends Controller
 {
     public function register(Request $request)
     {
-        // 1. Validasi password
+        // Validasi password
         if ($request->password !== $request->password_confirmation) {
             return back()->with('error', 'Konfirmasi password tidak sesuai');
         }
 
-        // 2. Cek email sudah terdaftar
+        // Cek email sudah terdaftar
         if (User::where('email', $request->email)->exists()) {
             return back()->with('error', 'Email sudah terdaftar');
         }
 
-        // 3. Ambil role dari form (default user)
+        // Ambil role dari form (default user)
         $role = 'user';
 
-        // 4. Kode verifikasi admin (hardcode untuk tugas)
+        // Kode verifikasi admin (hardcode untuk tugas)
         $ADMIN_CODE = 'AdminOnly';
 
-        // 5. Jika memilih admin
+        // Jika memilih admin
         if ($request->role === 'admin') {
 
             // Jika kode admin kosong
@@ -43,7 +43,7 @@ class RegisterController extends Controller
             $role = 'admin';
         }
 
-        // 6. Simpan user ke database
+        // Simpan user ke database
         User::create([
             'name'     => $request->name,
             'email'    => $request->email,

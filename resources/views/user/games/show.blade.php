@@ -49,6 +49,11 @@ body {
         <img src="{{ asset('images/cat.png') }}" height="28">
         ShiroNeko
     </a>
+        <div class="d-flex gap-2">
+            <a href="/user/dashboard"
+               class="btn btn-outline-info btn-sm">
+                <i class="bi bi-arrow-left"></i> Dashboard
+            </a>
     <a href="/logout" class="btn btn-outline-info btn-sm">Logout</a>
 </div>
 </nav>
@@ -131,14 +136,11 @@ body {
 
 <p class="text-secondary mb-1">Payment</p>
 <div class="border rounded p-2 mb-3" id="checkout-payment">-</div>
-
     <hr>
-
     <div class="d-flex justify-content-between mb-3">
     <span>Total</span>
     <h5 class="fw-bold text-info" id="checkout-total">Rp 0</h5>
 </div>
-
     <button class="btn btn-game w-100" disabled id="btn-buy">
     Beli Sekarang
     </button>

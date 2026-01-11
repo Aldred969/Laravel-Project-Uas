@@ -209,8 +209,6 @@ body {
 <div class="category mb-4">
     <button class="active">🔥 Populer</button>
     <button>Top Up</button>
-    <button>Voucher</button>
-    <button>Pulsa</button>
 </div>
 
 <!-- GAME LIST -->

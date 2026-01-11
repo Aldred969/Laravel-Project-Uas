@@ -18,15 +18,15 @@
         /* CARD */
         .card-neon {
             background: #020617;
-            border-radius: 20px;
+            border-radius: 22px;
             box-shadow: 0 0 45px rgba(56,189,248,.25);
             border: 1px solid rgba(56,189,248,.15);
         }
 
         /* SECTION TITLE */
         .section-title {
-            font-size: .8rem;
-            letter-spacing: .12em;
+            font-size: .75rem;
+            letter-spacing: .14em;
             text-transform: uppercase;
             color: #38bdf8;
             margin-bottom: 14px;
@@ -79,6 +79,17 @@
         .status-failed {
             background: rgba(239,68,68,.15);
             color: #f87171;
+        }
+
+        /* PAYMENT BADGE */
+        .badge-payment {
+            padding: .4em .9em;
+            font-size: .75rem;
+            border-radius: 20px;
+            font-weight: 600;
+            background: rgba(56,189,248,.15);
+            color: #38bdf8;
+            border: 1px solid rgba(56,189,248,.25);
         }
 
         /* BUTTON */
@@ -156,6 +167,15 @@
                     <span class="label">Harga</span>
                     <span class="value">
                         Rp {{ number_format($transaction->product->price ?? 0,0,',','.') }}
+                    </span>
+                </div>
+
+                <!-- 🔥 PAYMENT METHOD -->
+                <div class="info-item">
+                    <span class="label">Metode Pembayaran</span>
+                    <span class="badge-payment">
+                        <i class="bi bi-credit-card"></i>
+                        {{ strtoupper($transaction->payment_method ?? '-') }}
                     </span>
                 </div>
 
