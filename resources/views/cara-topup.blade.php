@@ -211,7 +211,7 @@ footer {
 </main>
 
 <footer class="py-4 text-center small text-secondary">
-    © 2025 ShiroNeko — Game Top Up Marketplace
+    © 2026 ShiroNeko. All rights reserved.
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

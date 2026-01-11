@@ -45,7 +45,88 @@
             color: #fff;
         }
 
+        /* Css Untuk article */
+        .feature-card {
+            position: relative;
+            background: linear-gradient(145deg, #0b0b0f, #141420);
+            border-radius: 26px;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow:
+                0 0 50px rgba(0,229,255,0.18),
+                inset 0 0 30px rgba(124,77,255,0.08);
+            overflow: hidden;
+        }
 
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at top left, rgba(0,229,255,0.18), transparent 45%),
+                radial-gradient(circle at bottom right, rgba(124,77,255,0.18), transparent 45%);
+            z-index: 0;
+        }
+
+        .feature-card .card-body {
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card h4 {
+            font-weight: 800;
+            background: linear-gradient(90deg, #00e5ff, #7c4dff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-card hr {
+            height: 2px;
+            width: 80px;
+            background: linear-gradient(90deg, #00e5ff, #7c4dff);
+            border: none;
+            border-radius: 10px;
+        }
+
+        .feature-card .icon-box {
+            box-shadow: 0 0 20px rgba(0,229,255,0.6);
+        }
+
+        .feature-card .btn-info {
+            background: linear-gradient(90deg, #00e5ff, #7c4dff);
+            border: none;
+            font-weight: 700;
+            border-radius: 30px;
+            color: #000;
+            box-shadow: 0 0 30px rgba(0,229,255,0.6);
+        }
+
+        .feature-card .btn-info:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 45px rgba(124,77,255,0.8);
+        }
+
+        /* PAKSA TEKS ARTIKEL JADI PUTIH */
+        .feature-card,
+        .feature-card p,
+        .feature-card h4,
+        .feature-card h5,
+        .feature-card h6,
+        .feature-card li,
+        .feature-card span,
+        .feature-card strong {
+            color: #ffffff !important;
+        }
+        .feature-card .text-muted {
+            color: #ffffff !important;
+            opacity: 0.9;
+        }
+        .feature-card ul li {
+            margin-bottom: 6px;
+        }
+
+
+
+        /* Css untuk game card */
         .game-card {
             background: #111;
             border-radius: 15px;
@@ -59,7 +140,7 @@
 
         .game-card img {
             width: 100%;
-            aspect-ratio: 3 / 4;   /* 1200 x 1600 */
+            aspect-ratio: 3 / 4; 
             object-fit: cover;
             border-radius: 12px;
         }
@@ -77,6 +158,8 @@
         .navbar-hide {
             transform: translateY(-100%);
         }
+
+        /* css untuk footer */
 
         .footer {
             background: #000;
@@ -166,68 +249,106 @@
     </div>
 </section>
 
-    <!--Artikel Tentang NekoTopUp-->
+    <!-- ARTIKEL TENTANG SHIRONEKO -->
 <section class="container my-5">
-    <h3 class="text-center fw-bold mb-4"> 
-       <img src="{{ asset('images/cat.png') }}"
-        alt="NekoTopUp Logo"
-         height="32"
-         class="d-inline-block align-text-top"> 
-        Kenapa Sih Harus Milih Kami
+    <h3 class="text-center fw-bold mb-5 section-title">
+        <img src="{{ asset('images/cat.png') }}"
+             alt="ShiroNeko Logo"
+             height="36"
+             class="me-2">
+        Mengenal ShiroNeko
     </h3>
-    <div class="row g-4">
 
-        <div class="col-md-4">
-            <div class="card bg-dark text-light h-100">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+
+            <div class="card feature-card p-4 p-md-5">
                 <div class="card-body">
-                    <h5 class="card-title">Apa Itu Top Up Game?</h5>
-                    <p class="card-text small text-white">
-                        Top up game adalah proses pembelian item digital seperti diamond,
-                        primogems, atau point untuk meningkatkan pengalaman bermain.
+
+                    <h4 class="fw-bold mb-3 text-info">
+                        ShiroNeko — Solusi Top Up Game Online untuk Gamer Indonesia
+                    </h4>
+
+                    <p class="text-muted">
+                        Di era digital saat ini, kebutuhan akan top up game yang
+                        <strong>cepat, aman, dan terpercaya</strong> menjadi hal yang sangat penting
+                        bagi para gamer. <strong>ShiroNeko</strong> hadir sebagai marketplace top up
+                        game online yang dirancang khusus untuk memberikan pengalaman transaksi
+                        terbaik tanpa ribet.
                     </p>
-                    <!--
-                    <a href="#" class="text-info text-decoration-none">
-                        Baca Selengkapnya →
-                    </a>
-                    -->
+
+                    <p class="text-muted">
+                        Dengan dukungan berbagai game populer seperti
+                        <strong>Mobile Legends, Free Fire, Genshin Impact, Valorant</strong>,
+                        dan game favorit lainnya, ShiroNeko memastikan setiap pembelian item
+                        digital dapat diproses secara <strong>instan dan akurat</strong>.
+                    </p>
+
+                    <hr class="border-secondary my-4">
+
+                    <div class="row g-4">
+
+                        <div class="col-md-4">
+                            <div class="d-flex gap-3">
+                                <div class="icon-box"></div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Proses Cepat & Otomatis</h6>
+                                    <p class="small text-muted mb-0">
+                                        Sistem kami bekerja secara real-time sehingga
+                                        item game langsung masuk ke akun kamu tanpa menunggu lama.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="d-flex gap-3">
+                                <div class="icon-box"></div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Aman & Terpercaya</h6>
+                                    <p class="small text-muted mb-0">
+                                        Tidak perlu login akun game.
+                                        Cukup masukkan ID & Server — privasi kamu tetap terjaga.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="d-flex gap-3">
+                                <div class="icon-box"></div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Harga Bersahabat</h6>
+                                    <p class="small text-muted mb-0">
+                                        Kami menawarkan harga kompetitif dengan berbagai
+                                        pilihan nominal top up sesuai kebutuhan gamer.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <hr class="border-secondary my-4">
+
+                    <p class="text-muted">
+                        ShiroNeko tidak hanya sekadar platform top up,
+                        tetapi juga <strong>partner terpercaya</strong> bagi para gamer
+                        yang ingin meningkatkan pengalaman bermain mereka.
+                        Dengan tampilan modern, sistem stabil, dan dukungan game yang terus bertambah,
+                        ShiroNeko siap menemani perjalanan gaming kamu.
+                    </p>
+
+                    <div class="text-center mt-4">
+                        <a href="/login" class="btn btn-info btn-lg text-dark fw-bold px-4">
+                            Mulai Top Up Sekarang
+                        </a>
+                    </div>
+
                 </div>
             </div>
-        </div>
 
-        <div class="col-md-4">
-            <div class="card bg-dark text-light h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Apakah Top Up Aman?</h5>
-                    <p class="card-text small text-white">
-                        ShiroNeko menggunakan sistem transaksi aman dan
-                        tidak menyimpan data sensitif pengguna.
-                    </p>
-                    <!--
-                    <a href="#" class="text-info text-decoration-none">
-                        Baca Selengkapnya →
-                    </a>
-                    -->
-                </div>
-            </div>
         </div>
-
-        <div class="col-md-4">
-            <div class="card bg-dark text-light h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Kenapa Harus ShiroNeko?</h5>
-                    <p class="card-text small text-white">
-                        Proses cepat, harga terjangkau, dan dukungan game populer
-                        membuat NekoTopUp pilihan terbaik gamer.
-                    </p>
-                    <!--
-                    <a href="#" class="text-info text-decoration-none">
-                        Baca Selengkapnya →
-                    </a>
-                    -->
-                </div>
-            </div>
-        </div>
-
     </div>
 </section>
 

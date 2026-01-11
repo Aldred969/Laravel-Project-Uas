@@ -78,6 +78,7 @@
                     <th>#</th>
                     <th>Nama Produk</th>
                     <th>Harga</th>
+                    <th></th>
                     <th class="text-center">Aksi</th>
                 </tr>
             </thead>

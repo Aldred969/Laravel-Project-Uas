@@ -12,9 +12,12 @@ body {
     background: radial-gradient(circle at top, #1a144f, #0b0822);
     color: #e5e7eb;
     font-family: 'Segoe UI', sans-serif;
-    padding-top: 100px;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
 }
+
 
 /* Hero Card */
 .hero-card {
@@ -94,7 +97,7 @@ footer {
 </div>
 </nav>
 
-<main class="container my-5" style="max-width: 900px;">
+<main class="container my-5 flex-grow-1" style="max-width: 900px;">
     <div class="hero-card">
 
         <h2 class="text-center fw-bold text-info mb-3">
@@ -156,7 +159,7 @@ footer {
 </main>
 
 <footer class="py-4 text-center small text-secondary bg-dark">
-    © 2025 ShiroNeko — Game Top Up Marketplace
+    © 2026 ShiroNeko. All rights reserved.
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
