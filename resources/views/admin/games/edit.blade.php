@@ -28,7 +28,7 @@
                            required>
                 </div>
 
-                <!-- GAMBAR SAAT INI -->
+                <!-- GAMBAR  -->
                 <div class="mb-3">
                     <label class="form-label">Gambar Saat Ini</label><br>
                     @if ($game->image)

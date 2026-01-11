@@ -25,10 +25,8 @@ class TransactionController extends Controller
         return view('user.riwayat', compact('transactions'));
     }
 
-    // ======================
+
     // SIMPAN TRANSAKSI BARU
-    // (Beli Sekarang)
-    // ======================
     public function store(Request $request)
 {
     if (!session()->has('user_id')) {
@@ -53,9 +51,7 @@ class TransactionController extends Controller
         ->with('success', 'Transaksi berhasil dibuat');
 }
 
-    // ======================
     // BATALKAN TRANSAKSI
-    // ======================
     public function cancel($id)
     {
         $transaction = Transaction::where('id', $id)

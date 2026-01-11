@@ -9,7 +9,7 @@ class GameController extends Controller
 {
     public function index()
     {
-        // 🔐 Proteksi manual (sesuai sistem kamu)
+        //validasi sesi user
         if (!session()->has('user_id') || session('role') != 'user') {
             return redirect('/login');
         }

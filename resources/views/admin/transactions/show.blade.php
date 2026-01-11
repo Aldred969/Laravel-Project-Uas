@@ -137,7 +137,7 @@
 
         <div class="row g-4">
 
-            <!-- LEFT : DETAIL -->
+            <!-- DETAIL -->
             <div class="col-lg-8">
                 <div class="section-title">
                     <i class="bi bi-info-circle"></i> Informasi Transaksi
@@ -170,7 +170,7 @@
                     </span>
                 </div>
 
-                <!-- 🔥 PAYMENT METHOD -->
+                <!-- PAYMENT check -->
                 <div class="info-item">
                     <span class="label">Metode Pembayaran</span>
                     <span class="badge-payment">
@@ -192,7 +192,7 @@
                 </div>
             </div>
 
-            <!-- RIGHT : ACTION -->
+            <!-- Bar Status set-->
             <div class="col-lg-4">
                 <div class="section-title">
                     <i class="bi bi-gear"></i> Status & Aksi

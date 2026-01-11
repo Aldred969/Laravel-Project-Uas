@@ -77,78 +77,74 @@ body {
 </div>
 </div>
 
-<!-- STEP 1 Bar Id -->
+<!-- Bar Id -->
 <div class="card-box p-4 mb-4">
 <h5 class="text-info fw-bold mb-3">1️⃣ ID Pengguna</h5>
 <input type="text" id="game_account" class="form-control"
        placeholder="Masukkan ID Game" required>
 </div>
 
-<!-- STEP 2 Bar Nominal Produk -->
+<!-- Bar Nominal Produk -->
 <div class="card-box p-4 mb-4">
-<h5 class="text-info fw-bold mb-3">2️⃣ Pilih Nominal</h5>
-<div class="row g-3">
-@foreach($game->products as $product)
-<div class="col-md-4">
-<div class="card-box p-3 text-center select-card product-card"
-     data-id="{{ $product->id }}"
-     data-name="{{ $product->name }}"
-     data-price="{{ $product->price }}">
-    <h6 class="text-info fw-bold">{{ $product->name }}</h6>
-    <p>Rp {{ number_format($product->price,0,',','.') }}</p>
+    <h5 class="text-info fw-bold mb-3">2️⃣ Pilih Nominal</h5>
+        <div class="row g-3">
+        @foreach($game->products as $product)
+        <div class="col-md-4">
+            <div class="card-box p-3 text-center select-card product-card"
+                data-id="{{ $product->id }}"
+                data-name="{{ $product->name }}"
+                data-price="{{ $product->price }}">
+            <h6 class="text-info fw-bold">{{ $product->name }}</h6>
+            <p>Rp {{ number_format($product->price,0,',','.') }}</p>
             </div>
         </div>
-@endforeach
+        @endforeach
     </div>
 </div>
 
-<!-- STEP 3 Bar Pembayaran -->
+<!-- Bar Pembayaran -->
 <div class="card-box p-4">
-<h5 class="text-info fw-bold mb-3">3️⃣ Metode Pembayaran</h5>
-<div class="row g-3">
-@foreach(['GoPay','DANA','OVO'] as $pay)
-<div class="col-md-3">
-<div class="card-box p-3 text-center select-card payment-card"
-     data-method="{{ $pay }}">
-    {{ $pay }}
-</div>
-</div>
-@endforeach
-</div>
-</div>
-
+    <h5 class="text-info fw-bold mb-3">3️⃣ Metode Pembayaran</h5>
+        <div class="row g-3">
+            @foreach(['GoPay','DANA','OVO'] as $pay)
+            <div class="col-md-3">
+                <div class="card-box p-3 text-center select-card payment-card" data-method="{{ $pay }}">
+                {{ $pay }}
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
 </div>
 
-<!-- RIGHT / CHECKOUT -->
-<div class="col-lg-4">
-<form action="{{ route('user.checkout') }}" method="POST">
-@csrf
+<!-- Bagian Checkout -->
+    <div class="col-lg-4">
+        <form action="{{ route('user.checkout') }}" method="POST">
+        @csrf
+            <input type="hidden" name="product_id" id="input-product">
+            <input type="hidden" name="payment_method" id="input-payment">
+            <input type="hidden" name="game_account" id="input-account">
 
-<input type="hidden" name="product_id" id="input-product">
-<input type="hidden" name="payment_method" id="input-payment">
-<input type="hidden" name="game_account" id="input-account">
+        <div class="card-box p-4 sticky-top" style="top:90px">
+                <h5 class="text-info fw-bold mb-4">Checkout</h5>
 
-<div class="card-box p-4 sticky-top" style="top:90px">
-<h5 class="text-info fw-bold mb-4">Checkout</h5>
+            <p class="text-secondary mb-1">Item</p>
+                <div class="border rounded p-2 mb-3" id="checkout-item">-</div>
 
-<p class="text-secondary mb-1">Item</p>
-<div class="border rounded p-2 mb-3" id="checkout-item">-</div>
-
-<p class="text-secondary mb-1">Payment</p>
-<div class="border rounded p-2 mb-3" id="checkout-payment">-</div>
-    <hr>
-    <div class="d-flex justify-content-between mb-3">
-    <span>Total</span>
-    <h5 class="fw-bold text-info" id="checkout-total">Rp 0</h5>
-</div>
-    <button class="btn btn-game w-100" disabled id="btn-buy">
-    Beli Sekarang
-    </button>
-</div>
-</form>
-</div>
-
-</div>
+            <p class="text-secondary mb-1">Payment</p>
+        <div class="border rounded p-2 mb-3" id="checkout-payment">-</div>
+        <hr>
+        <div class="d-flex justify-content-between mb-3">
+            <span>Total</span>
+                <h5 class="fw-bold text-info" id="checkout-total">Rp 0</h5>
+        </div>
+            <button class="btn btn-game w-100" disabled id="btn-buy">
+             Beli Sekarang
+            </button>
+        </div>
+        </form>
+        </div>
+    </div>
 </div>
 
 <script>
