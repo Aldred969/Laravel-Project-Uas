@@ -168,8 +168,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::put('/games/{id}', [GameController::class, 'update'])
         ->name('games.update');
 
-    Route::get('/games/delete/{id}', [GameController::class, 'destroy'])
-        ->name('games.destroy');
+Route::delete('/games/{id}', [GameController::class, 'destroy'])
+    ->name('games.destroy');
 });
 //End
 
